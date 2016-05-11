@@ -25,6 +25,7 @@
             autoOpen: true,
             modal: true,
             draggable: false,
+            autoResize: false,
             resizable: true,
             closeOnEscape: true,
             title: $t.data('dialogTitle') || null,
