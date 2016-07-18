@@ -102,6 +102,23 @@ function paragraphs_previewer_page_alter(&$page) {
 }
 
 /**
+ * Implements hook_paragraphs_item_access().
+ */
+function paragraphs_previewer_paragraphs_item_access($entity, $op, $account) {
+  // Loosen access on the previewer page to allow rendering new paragraphs and
+  // nested new paragraphs from the form state when the paragraphs module
+  // cannot determine the host.
+  if ($op == 'view' && !empty($entity) && strpos($_GET['q'], 'paragraphs-previewer/') === 0) {
+    // If new or no host entity.
+    if (empty($entity->item_id) || !$entity->hostEntity()) {
+      return PARAGRAPHS_ITEM_ACCESS_ALLOW;
+    }
+  }
+
+  return PARAGRAPHS_ITEM_ACCESS_IGNORE;
+}
+
+/**
  * Implements hook_field_widget_info().
  */
 function paragraphs_previewer_field_widget_info() {
@@ -243,6 +260,7 @@ function paragraphs_previewer_field_widget_form_process($element, $form_state, $
             ),
             'library' => array(
               array('system', 'ui.dialog'),
+              array('system', 'ui.progressbar'),
             ),
           ),
         );
