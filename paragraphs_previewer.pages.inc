@@ -118,7 +118,7 @@ function paragraphs_previewer_form_preview() {
   // indexed by entity type and id which fails for multiple new entities of
   // the same entity type that do not have an id.
   $host_entity->{$field_name}[$langcode] = array($field_item);
-  $previewer_view_mode = variable_get('paragraphs_previewer_view_mode', 'default');
+  $previewer_view_mode = variable_get('paragraphs_previewer_view_mode', 'full');
   $item_render = field_view_field($host_entity_type, $host_entity, $field_name, $previewer_view_mode, $langcode);
 
   // Allow others to alter the output, add CSS, add JS based on the paragaph

@@ -16,6 +16,32 @@ body.paragraphs-previewer-dialog-active {
 .paragraphs-previewer-ui-dialog > .paragraphs-previewer-wrapper {
   padding: 10px;
 }
+
+.paragraphs-previewer-wrapper {
+  position: relative;
+}
+
+.paragraphs-previewer-wrapper .paragraphs-previewer-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background: #fff;
+}
+
+.paragraphs-previewer-wrapper .paragraphs-previewer-progress .paragraphs-previewer-progress-bar {
+  position: relative;
+  margin: 0 auto;
+  top: 25%;
+  width: 50%;
+}
+
+.paragraphs-previewer-wrapper-loaded .paragraphs-previewer-progress {
+  display: none;
+}
+
 .paragraphs-previewer-wrapper  .paragraphs-previewer-iframe {
   max-width: 100%;
   width: 100%;

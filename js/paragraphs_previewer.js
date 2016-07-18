@@ -24,7 +24,7 @@
             width: $(window).width() * (1 - 2 * dialogPaddingPercent),
             autoOpen: true,
             modal: true,
-            draggable: false,
+            draggable: true,
             autoResize: false,
             resizable: true,
             closeOnEscape: true,
@@ -32,6 +32,10 @@
             closeText: '',
             open: function(event, ui) {
               $('body').addClass('paragraphs-previewer-dialog-active');
+              var tDialog = this;
+              $('.paragraphs-previewer-iframe', this).load(function() {
+                $(tDialog).addClass('paragraphs-previewer-wrapper-loaded');
+              });
             },
             close: function(event, ui) {
               $('body').removeClass('paragraphs-previewer-dialog-active');
@@ -65,7 +69,15 @@
           }
 
           // Create the wrapper.
-          var $wrapper = $('<div class="paragraphs-previewer-wrapper"><iframe src="' + url + '" class="paragraphs-previewer-iframe"></iframe></div>');
+          var wrapperHtml = '<div class="paragraphs-previewer-wrapper">' +
+            '<div class="paragraphs-previewer-progress"><div class="paragraphs-previewer-progress-bar"></div></div>' +
+            '<iframe src="' + url + '" class="paragraphs-previewer-iframe"></iframe>' +
+            '</div>';
+          var $wrapper = $(wrapperHtml);
+
+          $('.paragraphs-previewer-progress > .paragraphs-previewer-progress-bar', $wrapper).progressbar({
+            value: false
+          });
 
           // Initialize the dialog.
           $wrapper.dialog(dialogOptions);
