@@ -2,12 +2,12 @@
 
 /**
  * @file
- * Paragraphs Previewer classic widget implementation for paragraphs.
+ * Paragraphs Previewer EXPERIMENTAL widget implementation for paragraphs.
  */
 
 namespace Drupal\paragraphs_previewer\Plugin\Field\FieldWidget;
 
-use Drupal\paragraphs\Plugin\Field\FieldWidget\InlineParagraphsWidget;
+use Drupal\paragraphs\Plugin\Field\FieldWidget\ParagraphsWidget;
 use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Field\FieldItemListInterface;
@@ -17,21 +17,18 @@ use Drupal\Core\Ajax\AlertCommand;
 use Drupal\Component\Utility\NestedArray;
 
 /**
- * Plugin implementation of the 'entity_reference paragraphs' widget.
- *
- * We hide add / remove buttons when translating to avoid accidental loss of
- * data because these actions effect all languages.
+ * Plugin implementation of the 'paragraphs_previwer' widget.
  *
  * @FieldWidget(
- *   id = "entity_reference_paragraphs_previewer",
- *   label = @Translation("Paragraphs Previewer & Paragraphs Classic"),
- *   description = @Translation("An paragraphs inline form widget with a previewer."),
+ *   id = "paragraphs_previwer",
+ *   label = @Translation("Paragraphs Previewer & Paragraphs EXPERIMENTAL"),
+ *   description = @Translation("An paragraphs experimental form widget with a previewer."),
  *   field_types = {
  *     "entity_reference_revisions"
  *   }
  * )
  */
-class InlineParagraphsPreviewerWidget extends InlineParagraphsWidget {
+class ParagraphsPreviewerWidget extends ParagraphsWidget {
 
   use ParagraphsPreviewerWidgetTrait;
 
