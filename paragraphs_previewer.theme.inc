@@ -7,6 +7,7 @@
 use Drupal\Core\Render\Element;
 use Drupal\Core\Url;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Render\BubbleableMetadata;
 
 /**
  * Prepares variables for theme paragraphs_previewer_modal_content.
@@ -31,7 +32,7 @@ function template_preprocess_paragraphs_previewer_modal_content(&$variables) {
     $preview_url_render = array(
       '#markup' => $preview_url_bubbeable->getGeneratedUrl(),
     );
-    \Drupal\Core\Render\BubbleableMetadata::createFromRenderArray($preview_url_render)
+    BubbleableMetadata::createFromRenderArray($preview_url_render)
       ->merge($preview_url_bubbeable)
       ->applyTo($preview_url_render);
 

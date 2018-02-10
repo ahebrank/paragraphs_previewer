@@ -1,5 +1,5 @@
 dialog:
-  version: 1.x
+  version: 1.2
   js:
     js/dialog.js: {}
   css:
@@ -13,7 +13,7 @@ dialog:
     - core/drupal.ajax
     - core/drupal.dialog.ajax
 preview-page:
-  version: 1.x
+  version: 1.2
   css:
     component:
       css/preview_page.css: {}
