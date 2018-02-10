@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Paragraphs Previewer widget trait.
- */
-
 namespace Drupal\paragraphs_previewer\Plugin\Field\FieldWidget;
 
 use Drupal\Core\Field\FieldDefinitionInterface;

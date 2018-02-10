@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Paragraphs Previewer classic widget implementation for paragraphs.
- */
-
 namespace Drupal\paragraphs_previewer\Plugin\Field\FieldWidget;
 
 use Drupal\paragraphs\Plugin\Field\FieldWidget\InlineParagraphsWidget;
